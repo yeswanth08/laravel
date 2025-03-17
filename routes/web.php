@@ -13,9 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * this is Route::get('',fn) ==> this is just defining the route 
+ * 
+ * we can also name the route for the global usage 
+ * 
+ * naming the route is like registering the route 
+ * 
+ * name we can give any this for our convinience bcs it's internal and not visible 
+ * so we can use it internally in the application 
+ * 
+ * but route defining is visible explicitly 
+ */
+
 Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
+
 
 
 Route::get('/welcome/{name}',function($name){
