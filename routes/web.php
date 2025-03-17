@@ -13,6 +13,63 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
+    return view('home');
+});
+
+
+Route::get('/welcome/{name}',function($name){
+
+    /**
+     * as views are stored in the views folder this is the folder for view in mvc
+     * 
+     * which keeps all the view files
+     * 
+     * if you want to render the view file in the view folder we use return view('filename') fun
+     */
+
+    return view('welcome',compact('name'));
+});
+
+
+Route::get('/welcome',function(){
     return view('welcome');
 });
+
+
+Route::get('/response',function(){
+    return response()
+        ->json(["msg"=>"Hello i'm setting the cookies"])
+        -> header('my-header','LaravelHeader')
+        ->cookie('name-cookie','value',60);
+});
+
+
+Route::get('/user-info',function(){
+    return response()
+        ->json(["name"=>"jhon","age"=>26]);
+});
+
+
+Route::get('/old-route',function(){
+    return redirect('/new-route');
+});
+
+Route::get('/new-route',function(){
+    return "This is new Route and you may have been redirected from old-route";
+});
+
+/**
+ * same but this is explicit redirecting by using and specifiy the name of the route by using route name
+ * using route function 
+ */
+
+
+Route::get('/dashboard', function () {
+    return "Welcome to Dashboard!";
+})->name('dashboard');
+
+Route::get('/redirect-dashboard', function () {
+    return redirect()->route('dashboard');
+});
+

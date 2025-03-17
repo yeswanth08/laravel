@@ -19,6 +19,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+
+        /**
+         * kind of state magamen by crating the global state so that all the people can 
+         * use this global element 
+         */
+
+        view()->share("name","yeswanth");
     }
 }
