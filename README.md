@@ -25,3 +25,6 @@ vite.json => creates a local deployment server
 .env => stores all the secret files 
 
 kernal => handles global middlewares and network calls 
+
+
+assosiative array is like kind of map => $aArray = ["Key"=>[]]

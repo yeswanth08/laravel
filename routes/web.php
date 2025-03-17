@@ -87,3 +87,20 @@ Route::get('/redirect-dashboard', function () {
     return redirect()->route('dashboard');
 });
 
+
+Route::get('/primes/{range}',function($range){
+    $payload = ["primes"=>[]];
+    for ($it=2; $it<=$range; ++$it){
+        $isprime = true;
+        for ($i=2; $i<=$it/2; ++$i){
+            if ($it%$i==0){
+                $isprime = false;
+                break;
+            }
+        }
+        if ($isprime==true) array_push($payload['primes'],$it);
+    }
+    return response()
+        ->json(["msg"=>$payload]);
+});
+
