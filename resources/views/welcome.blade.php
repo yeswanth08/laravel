@@ -1,5 +1,5 @@
 <h1>
-    welcome {{ $name }} !!! 
+    welcome {{ $params }} !!! 
 </h1>
 
 <form action="{{route('home')}}" method="get">

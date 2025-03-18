@@ -25,6 +25,14 @@ class AppServiceProvider extends ServiceProvider
          * use this global element 
          */
 
-        view()->share("name","yeswanth");
+        
+        view()
+            ->share("name","yeswanth");
+        view()
+            ->share("student_1",["name"=>"student-1","age"=>20]);
+        view()
+            ->share("student_2",["name"=>"student-2","age"=>21]);
+        view()
+            ->share("student_3",["name"=>"student-3","age"=>23]);
     }
 }

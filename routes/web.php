@@ -42,7 +42,7 @@ Route::get('/welcome/{name}',function($name){
      * if you want to render the view file in the view folder we use return view('filename') fun
      */
 
-    return view('welcome',compact('name'));
+    return view('welcome',['params'=>$name]);
 });
 
 
@@ -87,6 +87,10 @@ Route::get('/redirect-dashboard', function () {
     return redirect()->route('dashboard');
 });
 
+/**
+ * with kind of type saftey of params
+ */
+
 
 Route::get('/primes/{range}',function($range){
     $payload = ["primes"=>[]];
@@ -102,5 +106,15 @@ Route::get('/primes/{range}',function($range){
     }
     return response()
         ->json(["msg"=>$payload]);
-});
+})->whereNumber('range');
+
+
+
+Route::get('/student-details',function(){
+    return view('student-details');
+})->name('student-details');
+
+Route::get('/student-display/{params}',function($params){
+    return view('student-display',['params'=>$params]);
+})->name('student-display');
 
