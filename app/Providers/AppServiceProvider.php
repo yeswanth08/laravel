@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
 
         
         view()
-            ->share("name","yeswanth");
+            ->share("name","yeswanth_1");
         view()
             ->share("student_1",["name"=>"student-1","age"=>20]);
         view()
