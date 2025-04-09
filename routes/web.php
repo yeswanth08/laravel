@@ -32,7 +32,7 @@ Route::get('/home', function () {
 
 
 
-Route::get('/welcome/{name}',function($name){
+Route::get('/welcome/{name}',function($names){
 
     /**
      * as views are stored in the views folder this is the folder for view in mvc
@@ -42,7 +42,7 @@ Route::get('/welcome/{name}',function($name){
      * if you want to render the view file in the view folder we use return view('filename') fun
      */
 
-    return view('welcome',['params'=>$name]);
+    return view('welcome',['params'=>$names]);
 });
 
 
